@@ -1,4 +1,4 @@
-package net.tlalka.github.search.feature.projectlist.adapter
+package net.tlalka.github.search.feature.projectlist.view.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import net.tlalka.github.search.repository.model.Project

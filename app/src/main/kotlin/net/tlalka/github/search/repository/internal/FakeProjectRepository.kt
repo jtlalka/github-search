@@ -1,9 +1,9 @@
 package net.tlalka.github.search.repository.internal
 
-import net.tlalka.github.search.repository.GitHubRepository
+import net.tlalka.github.search.repository.ProjectRepository
 import net.tlalka.github.search.repository.model.Project
 
-internal class FakeGitHubRepository : GitHubRepository {
+internal class FakeProjectRepository : ProjectRepository {
 
     //TODO: Add network result
     override fun findProjects(query: String): List<Project> = listOf(

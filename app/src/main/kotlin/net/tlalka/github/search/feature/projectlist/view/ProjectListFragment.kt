@@ -1,4 +1,4 @@
-package net.tlalka.github.search.feature.projectlist
+package net.tlalka.github.search.feature.projectlist.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,11 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import net.tlalka.github.search.databinding.ProjectListFragmentBinding.inflate
-import net.tlalka.github.search.feature.projectlist.adapter.ProjectsAdapter
 import net.tlalka.github.search.feature.projectlist.model.ProjectListState
+import net.tlalka.github.search.feature.projectlist.view.adapter.ProjectsAdapter
 import net.tlalka.github.search.feature.projectlist.viewmodel.ProjectListViewModel
 import net.tlalka.github.search.feature.projectlist.viewmodel.ProjectListViewModelFactory
-import kotlinx.android.synthetic.main.project_list_fragment.project_list_recycler as projectListRecycler
 
 class ProjectListFragment : Fragment() {
 

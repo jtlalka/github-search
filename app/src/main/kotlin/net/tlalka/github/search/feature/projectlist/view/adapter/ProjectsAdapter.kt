@@ -1,4 +1,4 @@
-package net.tlalka.github.search.feature.projectlist.adapter
+package net.tlalka.github.search.feature.projectlist.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

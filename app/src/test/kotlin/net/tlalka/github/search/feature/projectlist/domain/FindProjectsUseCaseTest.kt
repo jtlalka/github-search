@@ -5,14 +5,14 @@ import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
-import net.tlalka.github.search.repository.GitHubRepository
+import net.tlalka.github.search.repository.ProjectRepository
 import net.tlalka.github.search.repository.model.Project
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class FindProjectsUseCaseTest {
 
-    private val mockRepository: GitHubRepository = mock()
+    private val mockRepository: ProjectRepository = mock()
 
     private val tested = FindProjectsUseCase(mockRepository)
 

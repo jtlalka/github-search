@@ -16,7 +16,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".feature.projectlist.ProjectListFragment">
+        tools:context=".feature.projectlist.view.ProjectListFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/project_list_recycler"

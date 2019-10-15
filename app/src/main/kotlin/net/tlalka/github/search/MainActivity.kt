@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.run {
             setDisplayHomeAsUpEnabled(true)
-            setHomeAsUpIndicator(R.drawable.ic_github_logo_24dp)
+            setHomeAsUpIndicator(R.drawable.ic_github_logo)
         }
     }
 }
