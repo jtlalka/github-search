@@ -1,0 +1,44 @@
+import net.tlalka.config.Config
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Config.Android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion Config.Android.minSdkVersion
+        targetSdkVersion Config.Android.targetSdkVersion
+
+        applicationId 'net.tlalka.github.search'
+        versionCode 1
+        versionName '1.0'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    sourceSets.all { sourceSet ->
+        sourceSet.java.srcDirs += "src/${sourceSet.getName()}/kotlin"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+
+    implementation Config.Libs.kotlinStdlib
+    implementation Config.Libs.androidAppCompat
+    implementation Config.Libs.androidCoreKtx
+    implementation Config.Libs.androidConstraintLayout
+    implementation Config.Libs.androidLifecycle
+    implementation Config.Libs.androidLifecycleViewModel
+
+    testImplementation Config.Libs.junit
+
+    androidTestImplementation Config.Libs.junitExt
+    androidTestImplementation Config.Libs.espressoCore
+}
