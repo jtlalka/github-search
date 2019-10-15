@@ -16,8 +16,10 @@ object Config {
     const val dynamicAnimationVersion = "1.1.0-alpha02"
     const val androidLifecycleVersion = "2.2.0-beta01"
     const val androidNavigationVersion = "2.2.0-beta01"
+    const val androidMaterialVersion = "1.1.0-beta01"
     const val junitVersion = "4.12"
     const val junitExtVersion = "1.1.1"
+    const val mockitoVersion = "2.0.0-RC1"
     const val espressoVersion = "3.2.0"
 
     object Android {
@@ -41,9 +43,11 @@ object Config {
         const val androidLifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel:$androidLifecycleVersion"
         const val androidLifecycleExtension = "androidx.lifecycle:lifecycle-extensions:$androidLifecycleVersion"
         const val androidNavigationFragment = "androidx.navigation:navigation-fragment-ktx:$androidNavigationVersion"
+        const val androidMaterialDesign = "com.google.android.material:material:$androidMaterialVersion"
 
         const val junit = "junit:junit:$junitVersion"
         const val junitExt = "androidx.test.ext:junit:$junitExtVersion"
+        const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoVersion"
         const val espressoCore = "androidx.test.espresso:espresso-core:$espressoVersion"
     }
 }

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="net.tlalka.github.search.repository.model.Project" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/project_list_item_card_margin"
+        app:cardCornerRadius="6dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/project_list_item_content_margin"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/project_list_item_icon"
+                android:layout_width="@dimen/project_list_item_icon_size"
+                android:layout_height="@dimen/project_list_item_icon_size"
+                android:layout_margin="@dimen/project_list_item_icon_margin"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_project_list_item_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/project_list_item_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/project_list_item_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/project_list_item_name_margin"
+                android:layout_marginEnd="@dimen/project_list_item_name_margin"
+                android:textAllCaps="true"
+                android:text="@{item.name}"
+                android:textSize="@dimen/design_text_size_m"
+                app:layout_constraintBottom_toTopOf="@id/project_list_item_author"
+                app:layout_constraintEnd_toStartOf="@id/project_list_item_size"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/project_list_item_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="react-tetris" />
+
+            <TextView
+                android:id="@+id/project_list_item_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/project_list_item_name_margin"
+                android:layout_marginEnd="@dimen/project_list_item_name_margin"
+                android:text="@{String.valueOf(item.size) + ` MB`}"
+                android:textSize="@dimen/design_text_size_m"
+                app:layout_constraintBottom_toBottomOf="@id/project_list_item_name"
+                app:layout_constraintEnd_toStartOf="@id/project_list_item_arrow"
+                app:layout_constraintStart_toEndOf="@id/project_list_item_name"
+                app:layout_constraintTop_toTopOf="@id/project_list_item_name"
+                tools:text="64 MB" />
+
+            <TextView
+                android:id="@+id/project_list_item_author"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{item.author}"
+                android:textSize="@dimen/design_text_size_s"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/project_list_item_name"
+                app:layout_constraintStart_toStartOf="@id/project_list_item_name"
+                app:layout_constraintTop_toBottomOf="@id/project_list_item_name"
+                tools:text="Aerolab" />
+
+            <ImageView
+                android:id="@+id/project_list_item_arrow"
+                android:layout_width="@dimen/project_list_item_arrow_size"
+                android:layout_height="@dimen/project_list_item_arrow_size"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_project_list_item_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/project_list_item_size"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

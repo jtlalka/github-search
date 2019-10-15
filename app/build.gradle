@@ -14,7 +14,7 @@ android {
 
         applicationId 'net.tlalka.github.search'
         versionCode 1
-        versionName '1.0'
+        versionName '1.0.0'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
@@ -47,8 +47,10 @@ dependencies {
     implementation Config.Libs.androidLifecycleViewModel
     implementation Config.Libs.androidLifecycleExtension
     implementation Config.Libs.androidNavigationFragment
+    implementation Config.Libs.androidMaterialDesign
 
     testImplementation Config.Libs.junit
+    testImplementation Config.Libs.mockito
 
     androidTestImplementation Config.Libs.junitExt
     androidTestImplementation Config.Libs.espressoCore

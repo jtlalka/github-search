@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common design -->
+    <dimen name="design_text_size_l">18sp</dimen>
+    <dimen name="design_text_size_m">16sp</dimen>
+    <dimen name="design_text_size_s">13sp</dimen>
+
+    <!-- Project list item -->
+    <dimen name="project_list_item_card_margin">6dp</dimen>
+    <dimen name="project_list_item_content_margin">12dp</dimen>
+    <dimen name="project_list_item_icon_size">32dp</dimen>
+    <dimen name="project_list_item_icon_margin">8dp</dimen>
+    <dimen name="project_list_item_name_margin">6dp</dimen>
+    <dimen name="project_list_item_arrow_size">32dp</dimen>
+
+</resources>
