@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GitHub Search</string>
+
+    <string name="project_list_item_size_in_mb">%d Mb</string>
 </resources>
