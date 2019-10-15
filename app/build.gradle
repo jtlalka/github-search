@@ -3,6 +3,7 @@ import net.tlalka.config.Config
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Config.Android.compileSdkVersion
@@ -26,6 +27,14 @@ android {
             minifyEnabled false
         }
     }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -34,8 +43,10 @@ dependencies {
     implementation Config.Libs.androidAppCompat
     implementation Config.Libs.androidCoreKtx
     implementation Config.Libs.androidConstraintLayout
-    implementation Config.Libs.androidLifecycle
+    implementation Config.Libs.androidDynamicAnimation
     implementation Config.Libs.androidLifecycleViewModel
+    implementation Config.Libs.androidLifecycleExtension
+    implementation Config.Libs.androidNavigationFragment
 
     testImplementation Config.Libs.junit
 
