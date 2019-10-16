@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.google.android.material.card.MaterialCardView
 import net.tlalka.github.search.R
+import net.tlalka.github.search.feature.projectlist.view.extension.hideKeyboard
 import net.tlalka.github.search.feature.projectlist.view.listener.SearchChangeListener
 
 object ProjectListBindingAdapter {
@@ -44,6 +45,7 @@ object ProjectListBindingAdapter {
 
             override fun onKey(view: View?, keyCode: Int, event: KeyEvent): Boolean {
                 if (isEnterPressed(event)) {
+                    hideKeyboard()
                     listener.onSearchEneter(text.toString())
                     return true
                 }

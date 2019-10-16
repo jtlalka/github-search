@@ -16,6 +16,11 @@ class ProjectListViewModel(
 
     private val projectListState = MutableLiveData<ProjectListState>(ProjectListState())
 
+    init {
+        // just for presentation result purpose
+        searchByQuery("tetris")
+    }
+
     fun getProjectListState(): LiveData<ProjectListState> = projectListState
 
     fun searchByQuery(query: String) {

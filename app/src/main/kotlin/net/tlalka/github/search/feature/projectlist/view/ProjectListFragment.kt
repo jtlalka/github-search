@@ -27,7 +27,6 @@ class ProjectListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getProjectListState().observe(this, projectListStateObserver)
-        viewModel.searchByQuery("tetris")
     }
 
     override fun onCreateView(
