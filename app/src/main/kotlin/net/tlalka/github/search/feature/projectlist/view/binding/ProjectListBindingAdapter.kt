@@ -28,9 +28,13 @@ object ProjectListBindingAdapter {
     }
 
     @JvmStatic
-    @BindingAdapter("custom_projectSizeInMb")
-    fun TextView.projectSizeInMb(sizeInMb: Int) {
-        text = resources.getString(R.string.project_list_item_size_in_mb, sizeInMb)
+    @BindingAdapter("custom_projectMemorySize")
+    fun TextView.projectSizeInKb(sizeInKb: Int) {
+        text = if (sizeInKb > 1000) {
+            resources.getString(R.string.project_list_item_size_in_mb, sizeInKb / 1000)
+        } else {
+            resources.getString(R.string.project_list_item_size_in_kb, sizeInKb)
+        }
     }
 
     @BindingAdapter("custom_projectSearchChangeListener")

@@ -3,5 +3,6 @@
 
     <string name="project_list_search_hint">Search for GitHub repository…</string>
     <string name="project_list_general_error_message">Data loading error.\nPlease try again after one minute.</string>
-    <string name="project_list_item_size_in_mb">%d Mb</string>
+    <string name="project_list_item_size_in_kb">%d KB</string>
+    <string name="project_list_item_size_in_mb">%d MB</string>
 </resources>

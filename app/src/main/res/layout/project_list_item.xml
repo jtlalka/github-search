@@ -62,12 +62,12 @@
                 android:layout_marginStart="@dimen/project_list_item_name_margin"
                 android:layout_marginEnd="@dimen/project_list_item_name_margin"
                 android:textSize="@dimen/design_text_size_m"
-                app:custom_projectSizeInMb="@{item.size}"
+                app:custom_projectMemorySize="@{item.size}"
                 app:layout_constraintBottom_toBottomOf="@id/project_list_item_name"
                 app:layout_constraintEnd_toStartOf="@id/project_list_item_arrow"
                 app:layout_constraintStart_toEndOf="@id/project_list_item_name"
                 app:layout_constraintTop_toTopOf="@id/project_list_item_name"
-                tools:text="64 MB" />
+                tools:text="64 KB" />
 
             <TextView
                 android:id="@+id/project_list_item_author"
