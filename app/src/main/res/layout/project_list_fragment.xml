@@ -18,14 +18,40 @@
         android:layout_height="match_parent"
         tools:context=".feature.projectlist.view.ProjectListFragment">
 
+        <EditText
+            android:id="@+id/project_list_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/project_list_search_margin"
+            android:background="@drawable/project_list_search_background"
+            android:drawableStart="@drawable/ic_search_icon"
+            android:drawablePadding="@dimen/project_list_search_padding"
+            android:drawableTint="@color/design_color_on_surface_55"
+            android:elevation="@dimen/project_list_search_elevation"
+            android:gravity="center_vertical"
+            android:hint="@string/project_list_search_hint"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:padding="@dimen/project_list_search_padding"
+            android:text="@{viewModel.projectListState.query}"
+            android:textColor="@color/design_color_on_surface"
+            android:textColorHint="@color/design_color_on_surface_55"
+            app:custom_projectSearchChangeListener="@{viewModel::searchByQuery}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="m"
+            tools:text="tetris" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/project_list_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="12dp"
             android:overScrollMode="never"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/project_list_search"
             tools:itemCount="5"
             tools:listitem="@layout/project_list_item" />
 
@@ -33,6 +59,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:custom_toggle="@{viewModel.projectListState.loading}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/project_list_general_error_message"
+            android:textColor="@color/design_color_on_error"
+            android:textSize="@dimen/design_text_size_m"
+            android:textStyle="bold"
+            app:custom_toggle="@{viewModel.projectListState.hasError}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

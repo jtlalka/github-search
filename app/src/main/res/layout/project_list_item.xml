@@ -15,7 +15,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/project_list_item_card_margin"
+        android:layout_marginBottom="@dimen/project_list_item_card_margin"
         app:cardBackgroundColor="@drawable/surface_background"
         app:cardCornerRadius="6dp"
         app:custom_projectItemMarker="@{item.hasWiki}">

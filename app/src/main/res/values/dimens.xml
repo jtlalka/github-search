@@ -7,7 +7,10 @@
     <dimen name="design_text_size_s">13sp</dimen>
 
     <!-- Project list item -->
-    <dimen name="project_list_item_card_margin">6dp</dimen>
+    <dimen name="project_list_search_margin">16dp</dimen>
+    <dimen name="project_list_search_padding">8dp</dimen>
+    <dimen name="project_list_search_elevation">2dp</dimen>
+    <dimen name="project_list_item_card_margin">10dp</dimen>
     <dimen name="project_list_item_content_margin">12dp</dimen>
     <dimen name="project_list_item_icon_size">32dp</dimen>
     <dimen name="project_list_item_icon_margin">8dp</dimen>

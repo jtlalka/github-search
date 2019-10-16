@@ -12,7 +12,7 @@ object Config {
     // Libs
     const val androidCoreVersion = "1.1.0"
     const val androidAppCompatVersion = "1.1.0"
-    const val constraintLayoutVersion = "1.1.3"
+    const val constraintLayoutVersion = "2.0.0-beta2"
     const val dynamicAnimationVersion = "1.1.0-alpha02"
     const val androidLifecycleVersion = "2.2.0-beta01"
     const val androidNavigationVersion = "2.2.0-beta01"

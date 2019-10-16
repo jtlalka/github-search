@@ -19,17 +19,31 @@ class ProjectListViewModel(
     fun getProjectListState(): LiveData<ProjectListState> = projectListState
 
     fun searchByQuery(query: String) {
+        onLoadingQueryResult(query)
+        fetchQueryData(query)
+    }
+
+    private fun onLoadingQueryResult(query: String) {
         projectListState.value = ProjectListState(
+            query = query,
             isLoading = true,
+            hasError = false,
             results = emptyList()
         )
+    }
+
+    private fun fetchQueryData(query: String) {
         viewModelScope.launch {
-            projectListState.value = ProjectListState(
-                isLoading = false,
-                results = withContext(Dispatchers.IO) {
-                    findProjects.findProjects(query)
-                }
-            )
+            withContext(Dispatchers.IO) {
+                findProjects.findProjects(query)
+            }.apply {
+                projectListState.value = ProjectListState(
+                    query = query,
+                    isLoading = false,
+                    hasError = second,
+                    results = first
+                )
+            }
         }
     }
 }
