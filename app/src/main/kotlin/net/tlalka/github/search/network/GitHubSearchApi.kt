@@ -16,6 +16,6 @@ internal interface GitHubSearchApi {
 
         const val BASE_URL = "https://api.github.com/"
 
-        const val REQUEST_TIMEOUT_MS = 1500L
+        const val REQUEST_TIMEOUT_MS = 9000L
     }
 }
