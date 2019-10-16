@@ -41,6 +41,8 @@ android {
 dependencies {
 
     implementation Config.Libs.kotlinStdlib
+    implementation Config.Libs.kotlinCoroutines
+
     implementation Config.Libs.androidAppCompat
     implementation Config.Libs.androidCoreKtx
     implementation Config.Libs.androidConstraintLayout
@@ -49,6 +51,9 @@ dependencies {
     implementation Config.Libs.androidLifecycleExtension
     implementation Config.Libs.androidNavigationFragment
     implementation Config.Libs.androidMaterialDesign
+    implementation Config.Libs.retrofit
+    implementation Config.Libs.retrofitGson
+    implementation Config.Libs.okHttpLogger
 
     testImplementation Config.Libs.junit
     testImplementation Config.Libs.junitExt

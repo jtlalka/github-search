@@ -17,6 +17,10 @@ object Config {
     const val androidLifecycleVersion = "2.2.0-beta01"
     const val androidNavigationVersion = "2.2.0-beta01"
     const val androidMaterialVersion = "1.1.0-beta01"
+    const val kotlinCoroutinesVersion = "1.3.0"
+    const val retrofitVersion = "2.6.0"
+    const val okHttpVersion = "3.11.0"
+
     const val junitVersion = "4.12"
     const val junitExtVersion = "1.1.1"
     const val mockitoVersion = "2.0.0-RC1"
@@ -35,7 +39,7 @@ object Config {
 
     object Libs {
         const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-
+        const val kotlinCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
         const val androidCoreKtx = "androidx.core:core-ktx:$androidCoreVersion"
         const val androidAppCompat = "androidx.appcompat:appcompat:$androidAppCompatVersion"
         const val androidConstraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
@@ -44,6 +48,9 @@ object Config {
         const val androidLifecycleExtension = "androidx.lifecycle:lifecycle-extensions:$androidLifecycleVersion"
         const val androidNavigationFragment = "androidx.navigation:navigation-fragment-ktx:$androidNavigationVersion"
         const val androidMaterialDesign = "com.google.android.material:material:$androidMaterialVersion"
+        const val retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+        const val retrofitGson = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+        const val okHttpLogger = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 
         const val junit = "junit:junit:$junitVersion"
         const val junitExt = "androidx.test.ext:junit:$junitExtVersion"
