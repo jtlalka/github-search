@@ -1,9 +1,20 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/design_color_primary</item>
+        <item name="colorPrimaryVariant">@color/design_color_primary_variant</item>
+        <item name="colorSecondary">@color/design_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/design_color_secondary_variant</item>
+        <item name="android:colorBackground">@color/design_color_background</item>
+        <item name="colorSurface">@color/design_color_surface</item>
+        <item name="colorError">@color/design_color_error</item>
+        <item name="colorOnPrimary">@color/design_color_on_primary</item>
+        <item name="colorOnSecondary">@color/design_color_on_secondary</item>
+        <item name="colorOnBackground">@color/design_color_on_background</item>
+        <item name="colorOnSurface">@color/design_color_on_surface</item>
+        <item name="colorOnError">@color/design_color_on_error</item>
+
+        <item name="android:statusBarColor">@color/design_color_primary_variant</item>
     </style>
 
 </resources>
