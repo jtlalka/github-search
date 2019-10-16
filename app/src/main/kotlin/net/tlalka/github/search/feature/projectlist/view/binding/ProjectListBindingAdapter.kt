@@ -1,7 +1,6 @@
 package net.tlalka.github.search.feature.projectlist.view.binding
 
-import android.text.Editable
-import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -36,14 +35,19 @@ object ProjectListBindingAdapter {
 
     @BindingAdapter("custom_projectSearchChangeListener")
     @JvmStatic
-    fun EditText.onTextChangeListener(listener: SearchChangeListener) {
-        addTextChangedListener(object : TextWatcher {
+    fun EditText.onEnterListener(listener: SearchChangeListener) {
+        setOnKeyListener(object : View.OnKeyListener {
 
-            override fun afterTextChanged(text: Editable) = listener.onSearchChange(text.toString())
+            override fun onKey(view: View?, keyCode: Int, event: KeyEvent): Boolean {
+                if (isEnterPressed(event)) {
+                    listener.onSearchEneter(text.toString())
+                    return true
+                }
+                return false
+            }
 
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
+            private fun isEnterPressed(event: KeyEvent): Boolean =
+                (event.action == KeyEvent.ACTION_DOWN) && (event.keyCode == KeyEvent.KEYCODE_ENTER)
         })
     }
 }
