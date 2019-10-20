@@ -23,7 +23,7 @@ object Config {
 
     const val junitVersion = "4.12"
     const val junitExtVersion = "1.1.1"
-    const val mockitoVersion = "2.0.0-RC1"
+    const val mockitoVersion = "2.2.0"
     const val espressoVersion = "3.2.0"
 
     object Android {

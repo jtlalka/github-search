@@ -5,6 +5,7 @@ import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
+import kotlinx.coroutines.runBlocking
 import net.tlalka.github.search.repository.ProjectRepository
 import net.tlalka.github.search.repository.model.Project
 import org.junit.Assert.assertEquals
@@ -17,30 +18,31 @@ class FindProjectsUseCaseTest {
     private val tested = FindProjectsUseCase(mockRepository)
 
     @Test
-    fun `returns data for defined query`() {
+    fun `returns data for defined query`() = runBlocking {
         given(mockRepository.findProjects(eq(fakeQuery))).willReturn(fakeResults)
 
-        val result: List<Project> = tested.findProjects(fakeQuery)
+        val result = tested.findProjects(fakeQuery)
 
-        assertEquals(fakeResults, result)
+        assertEquals(fakeResults, result.first)
     }
 
     @Test
-    fun `returns empty list for empty query`() {
+    fun `returns empty list for empty query`() = runBlocking {
         given(mockRepository.findProjects(eq(""))).willReturn(emptyList())
 
-        val result: List<Project> = tested.findProjects("")
+        val result = runBlocking { tested.findProjects("") }
 
-        assertEquals(emptyList<Project>(), result)
+        assertEquals(emptyList<Project>(), result.first)
     }
 
     @Test
-    fun `verifies single repository usages`() {
+    fun `verifies single repository usages`() = runBlocking {
         given(mockRepository.findProjects(any())).willReturn(emptyList())
 
         tested.findProjects(fakeQuery)
 
         verify(mockRepository).findProjects(eq(fakeQuery))
+        Unit
     }
 
     companion object {
