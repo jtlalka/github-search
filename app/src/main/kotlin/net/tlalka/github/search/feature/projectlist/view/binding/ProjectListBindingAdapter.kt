@@ -46,7 +46,7 @@ object ProjectListBindingAdapter {
             override fun onKey(view: View?, keyCode: Int, event: KeyEvent): Boolean {
                 if (isEnterPressed(event)) {
                     hideKeyboard()
-                    listener.onSearchEneter(text.toString())
+                    listener.onSearchEnter(text.toString())
                     return true
                 }
                 return false

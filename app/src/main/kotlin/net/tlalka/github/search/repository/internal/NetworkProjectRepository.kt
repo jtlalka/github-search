@@ -10,7 +10,7 @@ import net.tlalka.github.search.repository.internal.mapper.ProjectMapper
 import net.tlalka.github.search.repository.model.Project
 
 internal class NetworkProjectRepository(
-    private val searchApi: GitHubSearchApi = GitHubSearchApiProvider().getApi(),
+    private val searchApi: GitHubSearchApi = GitHubSearchApiProvider.searchApi,
     private val projectMapper: ProjectMapper<ProjectItemDto> = NetworkProjectMapper()
 ) : ProjectRepository {
 
