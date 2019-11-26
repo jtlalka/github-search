@@ -4,11 +4,15 @@ buildscript {
     repositories {
         google()
         jcenter()
+        gradlePluginPortal()
     }
 
     dependencies {
         classpath Config.Build.androidPlugin
         classpath Config.Build.kotlinPlugin
+        classpath Config.Build.detektPlugin
+        classpath Config.Build.dexcountPlugin
+        classpath Config.Build.dokkaPlugin
     }
 }
 

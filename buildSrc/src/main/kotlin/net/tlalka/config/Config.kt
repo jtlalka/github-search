@@ -5,11 +5,14 @@ package net.tlalka.config
  */
 object Config {
 
-    // Build
+    // Build plugins
     const val androidToolsVersion = "3.5.1"
     const val kotlinVersion = "1.3.50"
+    const val detektVersion = "1.0.0.RC9.2"
+    const val dexcountVersion = "0.8.6"
+    const val dokkaVersion = "0.10.0"
 
-    // Libs
+    // Compile versions
     const val androidCoreVersion = "1.1.0"
     const val androidAppCompatVersion = "1.1.0"
     const val constraintLayoutVersion = "2.0.0-beta2"
@@ -21,6 +24,7 @@ object Config {
     const val retrofitVersion = "2.6.0"
     const val okHttpVersion = "3.11.0"
 
+    // Test versions
     const val junitVersion = "4.12"
     const val junitExtVersion = "1.1.1"
     const val mockitoVersion = "2.2.0"
@@ -35,6 +39,9 @@ object Config {
     object Build {
         const val androidPlugin = "com.android.tools.build:gradle:$androidToolsVersion"
         const val kotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        const val detektPlugin = "gradle.plugin.io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektVersion"
+        const val dexcountPlugin = "com.getkeepsafe.dexcount:dexcount-gradle-plugin:$dexcountVersion"
+        const val dokkaPlugin = "org.jetbrains.dokka:dokka-gradle-plugin:$dokkaVersion"
     }
 
     object Libs {

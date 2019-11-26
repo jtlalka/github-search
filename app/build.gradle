@@ -1,9 +1,17 @@
 import net.tlalka.config.Config
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+apply {
+    from "$rootDir/gradle/plugin/detekt.gradle"
+    from "$rootDir/gradle/plugin/dexcount.gradle"
+    from "$rootDir/gradle/plugin/dokka.gradle"
+}
 
 android {
     compileSdkVersion Config.Android.compileSdkVersion
@@ -24,7 +32,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
         }
     }
 
