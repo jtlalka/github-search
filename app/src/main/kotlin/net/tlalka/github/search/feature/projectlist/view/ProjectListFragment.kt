@@ -1,45 +1,46 @@
 package net.tlalka.github.search.feature.projectlist.view
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import net.tlalka.github.search.databinding.ProjectListFragmentBinding.inflate
-import net.tlalka.github.search.feature.projectlist.model.ProjectListState
+import net.tlalka.github.search.databinding.ProjectListFragmentBinding
 import net.tlalka.github.search.feature.projectlist.view.adapter.ProjectsAdapter
 import net.tlalka.github.search.feature.projectlist.viewmodel.ProjectListViewModel
 import net.tlalka.github.search.feature.projectlist.viewmodel.ProjectListViewModelFactory
+import net.tlalka.github.search.feature.projectlist.viewmodel.ProjectListViewState
+import net.tlalka.github.search.platform.BaseMvvmFragment
 
-class ProjectListFragment : Fragment() {
+class ProjectListFragment : BaseMvvmFragment<ProjectListViewModel, ProjectListFragmentBinding>(
+    inflateFunction = ProjectListFragmentBinding::inflate
+) {
 
     private val viewModel: ProjectListViewModel by viewModels { ProjectListViewModelFactory() }
 
     private val projectsAdapter: ProjectsAdapter = ProjectsAdapter()
 
-    private val projectListStateObserver = Observer<ProjectListState> {
-        projectsAdapter.submitList(it.results)
+    override fun inject() {
+        // Not yet implemented
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.getProjectListState().observe(this, projectListStateObserver)
-    }
+    override fun bind(binding: ProjectListFragmentBinding) {
+        binding.viewModel = viewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View = inflate(inflater).apply {
-        lifecycleOwner = this@ProjectListFragment
-        viewModel = this@ProjectListFragment.viewModel
-    }.apply {
-        with(projectListRecycler) {
+        with(binding.projectListRecycler) {
             layoutManager = LinearLayoutManager(context)
             adapter = projectsAdapter
         }
-    }.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getViewState().observe(viewLifecycleOwner, Observer(::onViewStateUpdate))
+    }
+
+    private fun onViewStateUpdate(viewState: ProjectListViewState) {
+        if (projectsAdapter.currentList != viewState.projects) {
+            projectsAdapter.submitList(viewState.projects)
+        }
+    }
 }

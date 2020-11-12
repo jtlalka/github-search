@@ -66,6 +66,8 @@ dependencies {
     testImplementation Config.Libs.junit
     testImplementation Config.Libs.junitExt
     testImplementation Config.Libs.mockito
+    testImplementation Config.Libs.androidTesting
+    testImplementation Config.Libs.coroutinesTest
 
     androidTestImplementation Config.Libs.junitExt
     androidTestImplementation Config.Libs.espressoCore

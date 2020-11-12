@@ -30,7 +30,7 @@ class NetworkProjectRepositoryTest {
         given(mockSearchApi.getProjects(any(), any())).willReturn(singleNetworkResult)
         given(mockProjectMapper.mapToProject(fakeNetworkItem)).willReturn(fakeMappingResult)
 
-        val result = tested.findProjects("query")
+        val result = tested.fetchProjects("query")
 
         assertEquals(listOf(fakeMappingResult), result)
     }
@@ -39,7 +39,7 @@ class NetworkProjectRepositoryTest {
     fun `returns empty list of projects when network result is empty`() = runBlocking {
         given(mockSearchApi.getProjects(any(), any())).willReturn(ProjectResultDto())
 
-        val result = tested.findProjects("query")
+        val result = tested.fetchProjects("query")
 
         assertEquals(emptyList<Project>(), result)
     }

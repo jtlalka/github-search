@@ -4,7 +4,6 @@ import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import okhttp3.logging.HttpLoggingInterceptor.Logger
 import java.util.concurrent.TimeUnit
 
 internal object HttpNetworkClient {
@@ -17,9 +16,7 @@ internal object HttpNetworkClient {
     }
 
     private fun getLoggingInterceptor(): Interceptor =
-        HttpLoggingInterceptor(
-            Logger { message -> Log.d("Network", message) }
-        ).apply {
+        HttpLoggingInterceptor { message -> Log.d("Network", message) }.apply {
             level = HttpLoggingInterceptor.Level.BASIC
         }
 }

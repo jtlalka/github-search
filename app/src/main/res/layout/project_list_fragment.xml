@@ -20,7 +20,7 @@
 
         <EditText
             android:id="@+id/project_list_search"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/project_list_search_margin"
             android:background="@drawable/project_list_search_background"
@@ -33,19 +33,19 @@
             android:importantForAutofill="no"
             android:inputType="text"
             android:padding="@dimen/project_list_search_padding"
-            android:text="@{viewModel.projectListState.query}"
+            android:text="@{viewModel.viewState.query}"
             android:textColor="@color/design_color_on_surface"
             android:textColorHint="@color/design_color_on_surface_55"
-            app:custom_projectSearchChangeListener="@{viewModel::searchByQuery}"
+            app:custom_projectSearchChangeListener="@{viewModel::onSearchSelected}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:targetApi="m"
-            tools:text="tetris" />
+            tools:text="projects" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/project_list_recycler"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:overScrollMode="never"
@@ -58,7 +58,7 @@
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:custom_toggle="@{viewModel.projectListState.loading}"
+            app:custom_toggle="@{viewModel.viewState.loading}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +73,7 @@
             android:textColor="@color/design_color_on_error"
             android:textSize="@dimen/design_text_size_m"
             android:textStyle="bold"
-            app:custom_toggle="@{viewModel.projectListState.hasError}"
+            app:custom_toggle="@{viewModel.viewState.hasError}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

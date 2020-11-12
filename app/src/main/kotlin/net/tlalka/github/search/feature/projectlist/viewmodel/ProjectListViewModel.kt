@@ -4,51 +4,42 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import net.tlalka.github.search.feature.projectlist.domain.FindProjectsUseCase
-import net.tlalka.github.search.feature.projectlist.model.ProjectListState
+import net.tlalka.github.search.feature.projectlist.domain.FetchProjectsUseCase
+import net.tlalka.github.search.feature.projectlist.domain.FetchProjectsUseCase.Output.Error
+import net.tlalka.github.search.feature.projectlist.domain.FetchProjectsUseCase.Output.Success
 
 class ProjectListViewModel(
-    private val findProjects: FindProjectsUseCase
+    private val fetchProjectsUseCase: FetchProjectsUseCase
 ) : ViewModel() {
 
-    private val projectListState = MutableLiveData<ProjectListState>(ProjectListState())
+    private val viewState = MutableLiveData(ProjectListViewState.EMPTY)
 
-    init {
-        // just for presentation result purpose
-        searchByQuery("tetris")
+    fun getViewState(): LiveData<ProjectListViewState> = viewState
+
+    fun onSearchSelected(query: String) = loading {
+        viewState.value = viewState.value?.copy(query = query)
+        updateProjectList(query)
     }
 
-    fun getProjectListState(): LiveData<ProjectListState> = projectListState
-
-    fun searchByQuery(query: String) {
-        onLoadingQueryResult(query)
-        fetchQueryData(query)
-    }
-
-    private fun onLoadingQueryResult(query: String) {
-        projectListState.value = ProjectListState(
-            query = query,
-            isLoading = true,
-            hasError = false,
-            results = emptyList()
-        )
-    }
-
-    private fun fetchQueryData(query: String) {
+    private fun loading(block: suspend () -> Unit) {
+        viewState.value = viewState.value?.copy(loading = true)
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                findProjects.findProjects(query)
-            }.apply {
-                projectListState.value = ProjectListState(
-                    query = query,
-                    isLoading = false,
-                    hasError = second,
-                    results = first
-                )
-            }
+            block.invoke()
+            viewState.value = viewState.value?.copy(loading = false)
+        }
+    }
+
+    private suspend fun updateProjectList(query: String) {
+        when (val result = fetchProjectsUseCase.run(query)) {
+            is Success -> viewState.value = viewState.value?.copy(
+                projects = result.projects,
+                hasError = false
+            )
+            is Error -> viewState.value = viewState.value?.copy(
+                projects = emptyList(),
+                hasError = true
+            )
         }
     }
 }

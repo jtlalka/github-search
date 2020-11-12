@@ -7,7 +7,7 @@ object Config {
 
     // Build plugins
     const val androidToolsVersion = "3.5.1"
-    const val kotlinVersion = "1.3.50"
+    const val kotlinVersion = "1.4.0"
     const val detektVersion = "1.0.0.RC9.2"
     const val dexcountVersion = "0.8.6"
     const val dokkaVersion = "0.10.0"
@@ -15,12 +15,12 @@ object Config {
     // Compile versions
     const val androidCoreVersion = "1.1.0"
     const val androidAppCompatVersion = "1.1.0"
-    const val constraintLayoutVersion = "2.0.0-beta2"
-    const val dynamicAnimationVersion = "1.1.0-alpha02"
-    const val androidLifecycleVersion = "2.2.0-beta01"
-    const val androidNavigationVersion = "2.2.0-beta01"
-    const val androidMaterialVersion = "1.1.0-beta01"
-    const val kotlinCoroutinesVersion = "1.3.0"
+    const val constraintLayoutVersion = "2.0.0"
+    const val dynamicAnimationVersion = "1.1.0-alpha03"
+    const val androidLifecycleVersion = "2.2.0"
+    const val androidNavigationVersion = "2.2.0"
+    const val androidMaterialVersion = "1.1.0"
+    const val kotlinCoroutinesVersion = "1.4.1"
     const val retrofitVersion = "2.6.0"
     const val okHttpVersion = "3.11.0"
 
@@ -28,12 +28,13 @@ object Config {
     const val junitVersion = "4.12"
     const val junitExtVersion = "1.1.1"
     const val mockitoVersion = "2.2.0"
+    const val androidTestingVersion = "2.1.0"
     const val espressoVersion = "3.2.0"
 
     object Android {
         const val minSdkVersion = 21
-        const val targetSdkVersion = 28
-        const val compileSdkVersion = 28
+        const val targetSdkVersion = 30
+        const val compileSdkVersion = 30
     }
 
     object Build {
@@ -62,6 +63,8 @@ object Config {
         const val junit = "junit:junit:$junitVersion"
         const val junitExt = "androidx.test.ext:junit:$junitExtVersion"
         const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoVersion"
+        const val androidTesting = "androidx.arch.core:core-testing:$androidTestingVersion"
+        const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinCoroutinesVersion"
         const val espressoCore = "androidx.test.espresso:espresso-core:$espressoVersion"
     }
 }

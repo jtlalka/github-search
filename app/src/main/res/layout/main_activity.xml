@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <!-- For multi view project we can use Navigation component here. -->
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/project_list_container"
         android:name="net.tlalka.github.search.feature.projectlist.view.ProjectListFragment"
         android:layout_width="match_parent"
